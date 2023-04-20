@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/slider.css">
+    <title>Slider</title>
+
+</head>
+<body>
+   <div class="box">
+      <h1 class="center">&lt;!Projekt bestehen&gt;</h1>
+      <h2>&lt;h2&gt;<span class="green">Interaktiver Slider</span>&lt;/h2&gt;</h2>
+      <p> 
+         <span class="blue">&lt;p&gt;</span>  <br>
+         Ein interaktiver Slider auf einer Webseite ermöglicht es Benutzern, schnell und einfach zwischen verschiedenen Optionen oder Werten zu wählen.
+         Durch diese Form der Interaktivität können Benutzer ihr Erlebnis auf der Webseite personalisieren und an ihre Bedürfnisse anpassen. 
+         Indem sie den Schieberegler bewegen, können Benutzer beispielsweise die Größe, Farbe oder Helligkeit eines Bildes oder einer Grafik ändern. 
+         Die Interaktivität des Sliders macht die Webseite dynamischer und benutzerfreundlicher und ermöglicht es Benutzern, auf eine intuitive und visuelle Weise mit den Inhalten der Seite zu interagieren.  
+         <br><span class="blue">&lt;/p&gt;</span>
+      </p>
+      <br><span class="orange">&lt;br&gt;</span><br>
+      <div id="slider">
+         <input type="radio" name="slider" id="slide1" checked>
+         <input type="radio" name="slider" id="slide2">
+         <input type="radio" name="slider" id="slide3">
+         <input type="radio" name="slider" id="slide4">
+         <div id="slides">
+            <div id="overflow">
+               <div class="inner">
+                  <div class="slide slide_1">
+                     <div class="slide-content">
+                        <h2>Slide 1</h2>
+                        <p>Content for Slide 1</p>
+                     </div>
+                  </div>
+                  <div class="slide slide_2">
+                     <div class="slide-content">
+                        <h2>Slide 2</h2>
+                        <p>Content for Slide 2</p>
+                     </div>
+                  </div>
+                  <div class="slide slide_3">
+                     <div class="slide-content">
+                        <h2>Slide 3</h2>
+                        <p>Content for Slide 3</p>
+                     </div>
+                  </div>
+                  <div class="slide slide_4">
+                     <div class="slide-content">
+                        <h2>Slide 4</h2>
+                        <p>Content for Slide 4</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="controls">
+            <label for="slide1"></label>
+            <label for="slide2"></label>
+            <label for="slide3"></label>
+            <label for="slide4"></label>
+         </div>
+         <div id="bullets">
+            <label for="slide1"></label>
+            <label for="slide2"></label>
+            <label for="slide3"></label>
+            <label for="slide4"></label>
+         </div>
+      </div>
+      <div class="center">
+         <form action="animation.html">
+            <button type="submit" class="pointer">Hier geht es weiter</button>
+         </form>
+      </div>
+         
+   </div>
+   <footer>
+      <nav>
+         <div class="circlenav"></div>
+         <div class="circlenav"></div>
+         <div class="circlenav"></div>
+         <div class="circlenav active"></div>
+         <div class="circlenav"></div>
+         <div class="circlenav"></div>
+         <div class="circlenav"></div>
+         <div class="circlenav"></div>
+      </nav>
+   </footer>
+</body>
+</html>

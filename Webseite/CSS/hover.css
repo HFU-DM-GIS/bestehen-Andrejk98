@@ -1,0 +1,121 @@
+/* Card */
+
+.box2{
+    display: flex;
+    height: 20vw;
+    width: 60vw;
+    justify-content: center;
+}
+
+.box3 img{
+    position: absolute;
+    backface-visibility: hidden;
+    transition: 1s;
+}
+
+.box3 img:nth-child(2){
+transform: rotateY(180deg);
+}
+
+.box3:hover img:nth-child(2){
+    transform: rotateY(0deg);
+}
+
+.box3:hover img:nth-child(1){
+    transform: rotateY(-180deg);
+}
+
+
+/* Button 1 */
+
+.btn{
+    border: 2px solid #7bc7ff;
+    color: #7bc7ff;
+    background: none;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+    margin-top: 5vw;
+}
+
+.btn:hover{
+    color: #ffffff;
+}
+
+.btn::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #7bc7ff;
+    z-index: -1;
+    transition: 0.8s;
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+}
+
+.btn:hover::before{
+    height: 180%;
+}
+
+
+/* Button 2 */
+
+.container{
+    text-align: center;
+    position: relative;
+}
+
+a{
+    position: relative;
+    background: #4ff9a3;
+    color: #4ff9a3;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 400;
+    padding: 10px 20px;
+    margin: 10px;
+    transition: 0.5s;
+    margin-top: 5vw;
+}
+
+a:hover{
+    background: #4ff9a3;
+    color: #4ff9a3;
+    letter-spacing: 0.5em;
+    box-shadow: 0 0 35px #4ff9a3;
+}
+
+a::before{
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: #1d1a32;
+}
+
+a span{
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Button 3 */
+
+.no-btn{
+    position: absolute;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1.5em;
+    font-weight: 400;
+    background: #1d1a32;
+    color: #ffba3c;
+    border: 2px solid #ffba3c;
+    outline: none;
+    cursor: pointer;
+    margin-top: 5vw;
+}

@@ -1,0 +1,164 @@
+/*Box-Modell-Regeln (z. B. width, height, padding, border, margin)*/
+/*
+p {
+  padding-left: 300px;
+}
+
+h1 {
+  padding-left: 300px;
+}*/
+
+/*Positionierungsregeln (z. B. position, display, float, clear)*/
+
+
+/*Typografie-Regeln (z. B. font-family, font-size, line-height, color, text-align)*/
+
+
+
+/*Visuelle Formatierungsregeln (z. B. background, opacity, visibility, overflow, box-shadow)*/
+
+
+
+
+
+/*CSS-Transformationen und Animationen (z. B. transform, transition, animation)*/
+
+
+
+/*animation jump 0.3s linear;*/
+
+
+
+
+/*.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.bar {
+  width: 20px;
+  height: 60px;
+  background-color: #000000;
+  animation: loader-anim 0.8s infinite ease-in-out; 
+} 
+
+
+*/
+
+.game {
+  width: 60vw;
+  height: 13vw;
+  border: 1px solid #c1c1c1;
+  margin: auto;
+  position: relative; 
+}
+
+.score
+ {
+  position: absolute;
+  font-size: 3vmin;
+  right: 1vmin;
+  top: 1vmin;
+ }
+
+
+ .start-screen {
+  position: absolute;
+  font-size: 2vmin;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ }
+
+ .hide {
+  display: none;
+ }
+
+.ground {
+  --left: 0;
+  position: absolute;
+  /* Change to 300*/
+  width: 100%;
+  bottom: 0;
+  left: calc(var(--left) * 1%)
+}
+
+
+#Unicorn {
+    /*maybe
+  --botom: 0;
+  */
+  width: 4vw;
+  height: 4vw;
+  background-image: url("../Bild/Unicorn.png");
+  background-size: 4vw 4vw;
+  position: relative;
+  animation: jump 1s linear infinite;
+   /*maybe
+  bottom: calc(var(--bottom) * 1%);
+    */
+
+}
+
+
+
+@keyframes jump {
+    0% {
+      top: 170px;
+    }
+    /*
+    30% {
+      top: 120px;
+
+    }
+*/
+    50% {
+      top: 70px;
+    }
+    /*
+    80% {
+      top: 120 ;
+    }
+*/
+    100% {
+      top: 170px;
+    }
+
+}
+
+
+#flower {
+  width: 1.5vw;
+  height: 2.5vw;
+  position: relative;
+  top: 123px;
+  left: 570px;
+  background-image: url("../Bild/Flower\ 1.png");
+  background-size: 1.5vw 2.5vw;
+
+  animation: block 2s infinite linear;
+
+}
+
+
+@keyframes block {
+  0% {
+    left: 100%;
+  }
+
+  100% {
+    left: 0%;
+  }
+}
+
+
+
+

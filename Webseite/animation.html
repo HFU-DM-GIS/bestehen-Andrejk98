@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/animation.css">
+    <script src="Script/animation.js" defer></script>
+</head>
+<body>
+    <div class="box">
+        <h1 class="center">&lt;!Projekt bestehen&gt;</h1>
+        <h2>&lt;h2&gt;<span class="green">Animation</span>&lt;/h2&gt;</h2>
+        <p>
+            <span class="blue">&lt;p&gt;</span> <br>
+            Mit CSS-Animation kann man Elemente wie Bilder, Boxen oder Text animieren, indem eine oder mehrere CSS-Eigenschaft(en) im Verlauf der Animation unterschiedliche Werte erhalten.
+            Anders als bei transition können hier auch mehrstufige Animationen festlegen.
+            <br><span class="blue">&lt;/p&gt;</span>
+        </p>
+
+        <br><span class="orange">&lt;br&gt;</span>
+        
+        <h2>&lt;h2&gt;<span class="green">Keyframes</span>&lt;/h2&gt;</h2>
+
+        <p>
+            <span class="blue">&lt;p&gt;</span> <br>
+            In einer @keyframes-Regel werden Wegpunkte für den Ablauf der Animation gesetzt, die dann von der Eigenschaft animation aufgerufen werden.
+            <br><span class="blue">&lt;/p&gt;</span>
+        </p>
+        
+
+        <img src="Bild/Unicorn.png" alt="Einhorn" class="unicorn" id="unicorn">
+        <br><span class="orange">&lt;br&gt;</span>
+
+        <p> 
+            <span class="blue">&lt;p&gt;</span> <br>
+            Mit der @keyframes-Regel kann man die einzelnen Schritte einer CSS-Animationssequenz festlegen, indem Wir Wegpunkte setzen, die während der Sequenz an bestimmten Punkten erreicht werden.
+            <br><span class="blue">&lt;/p&gt;</span>
+        </p>
+       
+        <br><span class="orange">&lt;br&gt;</span>
+
+        <p>
+            <span class="blue">&lt;p&gt;</span> <br>
+            Eine @keyframes-Regel hat drei Bestandteile: 
+            <ul>
+                <li>einen Namen, der dann mit der Eigenschaft animation-name aufgerufen wird.</li>
+                <li>
+                        Wegpunkte: 
+                        <ul>
+                            <li>entweder mit den Schlüsselwörtern from und to die den Start- bzw. Endpunkt festlegen</li> 
+                            <strong>oder</strong> 
+                            <li>mehrere Wegpunkte mit Prozentwerten</li> 
+                        </ul>    
+                    </li> 
+                <li>Wertangaben für die zu animierenden CSS-Eigenschaften in den geschweiften Klammern nach den Schlüsselwörtern bzw. Prozentangaben wie etwa transform oder opacity.</li> 
+            </ul>
+            <span class="blue">&lt;/p&gt;</span>
+        </p>
+        <div class="center">
+            <form action="onscroll.html">
+                <button type="submit" class="pointer">Hier geht es weiter</button>
+              </form>
+        </div>
+    </div>
+    <div class="area" >
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <footer>
+        <nav>
+            <div class="circlenav"></div>
+            <div class="circlenav"></div>
+            <div class="circlenav"></div>
+            <div class="circlenav"></div>
+            <div class="circlenav active"></div>
+            <div class="circlenav"></div>
+            <div class="circlenav"></div>
+            <div class="circlenav"></div>
+        </nav>
+    </footer>
+</body>
+</html>

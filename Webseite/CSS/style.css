@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'Fira Code';
+    src: url('/Webseite/Schriftart/woff2/FiraCode-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url('/Webseite/Schriftart/woff2/FiraCode-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body{
+    background-color: #1d1a32;
+    color: #c1c1c1;
+    font-family: 'Fira Code';
+}
+
+h1{
+    margin-bottom: 3vw;
+}
+
+.circlenav{
+    margin-top: 3vh;
+    height: 1vw;
+    width: 1vw;
+    border-radius: 50px;
+    background-color: lightgray;
+   
+}
+
+.box{
+    width: 60vw;
+    margin: 0 auto;
+}
+
+.pointer{
+    cursor: pointer;
+    margin-top: 2vw;
+}
+
+.center{
+    text-align: center;
+}
+
+.center button{
+    width: 20vw;
+    height: 5vh;
+    border-radius: 2vw;
+}
+
+nav{
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 2vw;
+}
+
+.active{
+    transform: scale(1.50);
+}
+
+.green{
+    color: #4ff9a3;
+}
+
+.orange{
+    color: #ffba3c;
+}
+
+.blue{
+    color: #7bc7ff;
+}
+
+.grey{
+    color: #c1c1c1;
+}
+
+.link{
+    text-decoration: none;
+    color: #c1c1c1;
+}
+
+
+
+@media screen and (min-width: 1024px) {
+    font{
+      font-size: 60px ;
+    }
+  }
+ 
+  @media screen and (min-width: 720px) {
+    font{
+      font-size: 50px ;
+    }
+  }
