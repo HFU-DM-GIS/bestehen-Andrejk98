@@ -1,3 +1,18 @@
+:root{
+  --primary-color: #1d1a32;
+  --secondary-color: #455562;
+}
+
+.light_mode{
+  --primary-color: #455562;
+  --secondary-color: #1d1a32;
+}
+
+body{
+  background-color: var(--primary-color);
+  color: #c1c1c1;
+  font-family: 'Fira Code';
+}
 
 .bluebutton {
   width: 120px;
@@ -107,6 +122,37 @@ input:checked + .slider:before {
   
 }
 :root { scroll-behavior: smooth; }
+
+#light_mode_button {
+  width: 120px;
+  line-height: 2.5;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  background-color: #7bc7ff;
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0,0.6);
+  margin-top: 50px;
+  border-radius: 5%;
+}
+
+.download {
+  width: 119px;
+}
+
+.DownloadButton {
+  width: 120px;
+  line-height: 2.5;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  background-color: #7bc7ff;
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0,0.6);
+  border-radius: 5%;
+}
 
 div {
   margin-left: 50px;
