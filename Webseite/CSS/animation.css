@@ -13,6 +13,11 @@
     height:100%;
 }
 
+.myCanvas{
+    width: 60vw;
+    height: 30vw;
+}
+
 .circles{
     position: absolute;
     top: 0;
