@@ -48,41 +48,7 @@ h1 {
   height: 60px;
   background-color: #000000;
   animation: loader-anim 0.8s infinite ease-in-out; 
-} 
-
-
-*/
-
-
-/* Neuer Teil 1 */
-
-*, ::before, *::after {
-  box-sizing: border-box;
-  user-select: none;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-
-
-.game {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 200px;
-
-}
-
-/*Neuer Teil 1 Ende*/
-
-
-/* Alte Version before JavaScript 
+} */
 
 .game {
   width: 60vw;
@@ -92,7 +58,7 @@ body {
   position: relative; 
 }
 
-*/
+
 
 .score
  {
@@ -122,30 +88,11 @@ body {
   width: 100%;
   bottom: 0;
   left: calc(var(--left) * 1%)
-}
-
-/*Neu Teil 2*/
-.Unicorn {
-  --bottom: 0;
-  position: absolute;
-  left: 1%;
-  height: 30%;
-  bottom: calc(var(--bottom)* 1%);
-}
-
-.flower {
-  --left: 0;
-  position: absolute;
-  left: calc(var(--left) * 1%);
-  height: 30%;
-  bottom: 0;
-}
-
-/*before Java Script
-
-#Unicorn {
-    (maybe
-  --botom: 0;)
+  }
+  
+  #Unicorn {
+    /*maybe
+  --botom: 0;*/
 
   width: 4vw;
   height: 4vw;
@@ -154,37 +101,33 @@ body {
   position: relative;
   animation: jump 1s linear infinite;
    
-  (maybe
-  bottom: calc(var(--bottom) * 1%); )
+  /*maybe
+  bottom: calc(var(--bottom) * 1%); */
     
 
-}
-*/
-
-/* könnte man noch brauchen
-
-
-@keyframes jump {
+  }
+  
+  @keyframes jump {
     0% {
       top: 170px;
     }
     
-    -------dieser Abschnitt war weck----------
+    /*
     30% {
       top: 120px;
 
     }
-    ------- dieser Abschnitt war weck-----------
+    */
 
     50% {
       top: 70px;
     }
 
-    ---------dieser Abschnitt war weck--------
+    /*
     80% {
       top: 120 ;
     }
-    ---------dieser Abschnitt war Weck-------
+    */
 
     100% {
       top: 170px;
@@ -214,11 +157,6 @@ body {
 
   100% {
     left: 0%;
+    }
+
   }
-}
-
-*/
-
-
-
-
