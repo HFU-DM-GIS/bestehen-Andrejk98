@@ -167,13 +167,15 @@ div {
   
   display: flex;
   max-width: 250px;
+
+  margin: 0px;
 }
 
 .copy-link-input {
   flex-grow: 1;
   padding: 0 8px;
   font-size: 14px;
-  border: 1px solid #cccccc;
+  border: 1px solid #4ff9a3;
   border-right: none;
   outline: none;
 }
@@ -189,7 +191,7 @@ div {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #dddddd;
+  background: #4ff9a3;
   color: #333333;
   outline: none;
   border: 1px solid #cccccc;
@@ -197,6 +199,6 @@ div {
 }
 
 .copy-link-button:hover {
-  background: #cccccc;
-  
+  background: #31c67b;
+
 }
