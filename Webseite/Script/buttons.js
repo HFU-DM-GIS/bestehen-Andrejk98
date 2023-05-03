@@ -20,3 +20,23 @@ downloadLinks.forEach(button => {
         document.body.removeChild(a);
     });
 });
+
+document.querySelectorAll(".copy-link").forEach(copyLinkContainer => {
+    const inputFeld = copyLinkContainer.querySelector(".copy-link-input");
+    const copyButton = copyLinkContainer.querySelector(".copy-link-button");
+   
+
+    inputFeld.addEventListener("focus", () => inputFeld.select());
+
+    copyButton.addEventListener("click", () => {
+        const text = inputFeld.value;
+
+        inputFeld.select();
+        navigator.clipboard.writeText(text);
+
+        inputFeld.value = "Link kopiert :)";
+        setTimeout(() => inputFeld.value = text, 3000);
+
+    })
+
+});
