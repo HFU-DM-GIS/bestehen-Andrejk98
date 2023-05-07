@@ -49,3 +49,12 @@ function checkLose() {
       rect1.bottom > rect2.top
     )
   }
+
+  function updateSpeedScale(delta) {
+    speedScale += delta * SPEED_SCALE_INCREASE
+  }
+  
+  function updateScore(delta) {
+    score += delta * 0.01
+    scoreElem.textContent = Math.floor(score)
+  }
