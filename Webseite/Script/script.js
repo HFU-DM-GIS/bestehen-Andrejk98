@@ -24,3 +24,14 @@ function update(time) {
     return
   }
   const delta = time - lastTime
+
+  updateGround(delta, speedScale)
+  updateUnicorn(delta, speedScale)
+  updateFlower(delta, speedScale)
+  updateSpeedScale(delta)
+  updateScore(delta)
+  if (checkLose()) return handleLose()
+
+  lastTime = time
+  window.requestAnimationFrame(update)
+}
