@@ -58,3 +58,14 @@ function checkLose() {
     score += delta * 0.01
     scoreElem.textContent = Math.floor(score)
   }
+
+  function handleStart() {
+    lastTime = null
+    speedScale = 1
+    score = 0
+    setupGround()
+    setupUnicorn()
+    setupFlower()
+    startScreenElem.classList.add("hide")
+    window.requestAnimationFrame(update)
+  }
