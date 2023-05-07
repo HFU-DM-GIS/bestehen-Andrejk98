@@ -13,3 +13,14 @@ const startScreenElem = document.querySelector("[data-start-screen]")
 setPixelToWorldScale()
 window.addEventListener("resize", setPixelToWorldScale)
 document.addEventListener("keydown", handleStart, { once: true })
+
+let lastTime
+let speedScale
+let score
+function update(time) {
+  if (lastTime == null) {
+    lastTime = time
+    window.requestAnimationFrame(update)
+    return
+  }
+  const delta = time - lastTime
