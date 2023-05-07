@@ -35,3 +35,17 @@ function update(time) {
   lastTime = time
   window.requestAnimationFrame(update)
 }
+
+function checkLose() {
+    const unicornRect = getUnicornRect()
+    return getFlowerRects().some(rect => isCollision(rect, unicornRect))
+  }
+  
+  function isCollision(rect1, rect2) {
+    return (
+      rect1.left < rect2.right &&
+      rect1.top < rect2.bottom &&
+      rect1.right > rect2.left &&
+      rect1.bottom > rect2.top
+    )
+  }
