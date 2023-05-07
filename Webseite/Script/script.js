@@ -69,3 +69,11 @@ function checkLose() {
     startScreenElem.classList.add("hide")
     window.requestAnimationFrame(update)
   }
+
+  function handleLose() {
+    setUnicornLose()
+    setTimeout(() => {
+      document.addEventListener("keydown", handleStart, { once: true })
+      startScreenElem.classList.remove("hide")
+    }, 100)
+  }
