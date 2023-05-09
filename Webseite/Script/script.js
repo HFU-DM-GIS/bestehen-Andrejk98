@@ -1,6 +1,6 @@
 import { updateGround, setupGround } from "./ground.js"
 import { updateUnicorn, setupUnicorn, getUnicornRect, setUnicornLose } from "./unicorn.js"
-import { updateFlower, setupFlower, getFlowerRects } from "./flower.js"
+import { updateFlower, setupFlower, getFlowerRects } from "./flower"
 
 const WORLD_WIDTH = 100
 const WORLD_HEIGHT = 30
