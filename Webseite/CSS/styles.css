@@ -52,13 +52,13 @@
     --bottom: 0;
     position: absolute;
     left: 1%;
-    height: 30%;
+    height: 25%;
     bottom: calc(var(--bottom) * 1%);
   }
   
   .flower {
     position: absolute;
     left: calc(var(--left) * 1%);
-    height: 30%;
+    height: 15%;
     bottom: 0;
   }
