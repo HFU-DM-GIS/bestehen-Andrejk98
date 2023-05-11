@@ -65,7 +65,8 @@ import {
   }
   
   function onJump(e) {
-    if (e.code !== "Space" || isJumping) return
+
+    if (e.key !== "w" || isJumping) return
   
     yVelocity = JUMP_SPEED
     isJumping = true
