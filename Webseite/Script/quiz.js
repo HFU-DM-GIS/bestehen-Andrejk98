@@ -1,9 +1,8 @@
-const cards = document.querySelectorAll(".card");
-const resetButton = document.querySelector("#reset");
-
 const API_URL = "https://publicapi.dev/random-useless-facts-api";
 
-let flippedCard = false;
+const cards = document.querySelectorAll('.memory-card');
+
+let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
@@ -11,62 +10,59 @@ function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
 
-  if (!flippedCard) {
-    this.classList.add("selected");
-    console.log(this.firstChild);
-    this.firstChild.classList.add("flipped");
-    flippedCard = true;
+  this.classList.add('flip');
+
+  if (!hasFlippedCard) {
+    // first click
+    hasFlippedCard = true;
     firstCard = this;
+
     return;
   }
-  this.classList.add("selected");
-  this.firstChild.classList.add("flipped");
+
+  // second click
   secondCard = this;
+
   checkForMatch();
 }
 
 function checkForMatch() {
-  if (firstCard.dataset.card === secondCard.dataset.card) {
-    disableCards();
-    return;
-  }
+  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
-  unflipCards();
+  isMatch ? disableCards() : unflipCards();
 }
 
 function disableCards() {
-  firstCard.removeEventListener("click", flipCard);
-  secondCard.removeEventListener("click", flipCard);
+  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
 
-  firstCard.classList.add("correct");
-  secondCard.classList.add("correct");
   resetBoard();
-  createRandomFact();
 }
 
 function unflipCards() {
   lockBoard = true;
-  firstCard.classList.add("incorrect");
-  secondCard.classList.add("incorrect");
 
   setTimeout(() => {
-    firstCard.classList.remove("selected", "incorrect");
-    secondCard.classList.remove("selected", "incorrect");
-    firstCard.firstChild.classList.remove("flipped");
-    secondCard.firstChild.classList.remove("flipped");
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip');
+
     resetBoard();
-  }, 1000);
+  }, 1500);
 }
 
 function resetBoard() {
-  [flippedCard, lockBoard] = [false, false];
+  [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
 }
 
-cards.forEach((card) => card.addEventListener("click", flipCard));
-resetButton.addEventListener("click", () => {
-  location.reload();
-});
+(function shuffle() {
+  cards.forEach(card => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+})();
+
+cards.forEach(card => card.addEventListener('click', flipCard));
 
 function createRandomFact() {
   // Hier wird mit der fetch() Methode die API aufgerufen
