@@ -1,5 +1,3 @@
-const API_URL = "https://publicapi.dev/random-useless-facts-api";
-
 const cards = document.querySelectorAll('.memory-card');
 
 let hasFlippedCard = false;
@@ -63,6 +61,8 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+const API_URL = "https://publicapi.dev/random-useless-facts-api";
 
 function createRandomFact() {
   // Hier wird mit der fetch() Methode die API aufgerufen
