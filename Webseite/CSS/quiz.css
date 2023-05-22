@@ -51,3 +51,7 @@ body{
 .front-face {
   transform: rotateY(180deg);
 }
+
+img{
+  border: none;
+}
