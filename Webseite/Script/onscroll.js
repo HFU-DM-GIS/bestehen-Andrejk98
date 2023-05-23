@@ -63,7 +63,7 @@ function grow(){
 
     if (rectfi.right >= rectzi.left && isLarged == false) {
         zi.style.visibility = "hidden";
-        fi.src = "Bild/shark.png";
+        fi.src = "./Webseite/Bild/shark.png";
         
 
         /* let currentWidth = parseFloat(window.getComputedStyle(fi).width);
