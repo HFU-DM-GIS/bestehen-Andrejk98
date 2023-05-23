@@ -37,7 +37,7 @@ function disableCards() {
   function openPopup() {
     document.getElementById("myPopup").style.display = "block";
   }
-  
+
   createRandomFact();
 
 
@@ -87,10 +87,6 @@ function createRandomFact() {
     .catch(error => console.error(error)); // Hier wird eine Fehlerbehandlung durchgeführt
 
     
-    
-
-
-
 }
 
 
