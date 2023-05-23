@@ -34,7 +34,12 @@ function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
 
+  function openPopup() {
+    document.getElementById("myPopup").style.display = "block";
+  }
+  
   createRandomFact();
+
 
   resetBoard();
 }
@@ -76,9 +81,7 @@ function createRandomFact() {
       const fakt = data.text; // Hier wird der zufällige Fakt aus dem JSON-Objekt extrahiert
       // Hier wird der Fakt in das HTML-Dokument eingefügt
 
-      function openPopup() {
-        document.getElementById("myPopup").style.display = "block";
-      }
+      
       document.getElementById("random-fact").textContent = fakt;
     })
     .catch(error => console.error(error)); // Hier wird eine Fehlerbehandlung durchgeführt
