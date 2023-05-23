@@ -60,7 +60,7 @@ img{
 
 .popup {
   display: block;
-  /* visibility: hidden; */
+  visibility: hidden;
   position: fixed;
   width: 19%;
   height: 19%;
