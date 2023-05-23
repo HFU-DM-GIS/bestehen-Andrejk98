@@ -20,6 +20,6 @@ function moveHover(){
 
     b.style.position = "absolute";
     b.style.left = i + "px";
-    b.style.top = j + "px";
+    b.style.top = j + "px";
 
 }
