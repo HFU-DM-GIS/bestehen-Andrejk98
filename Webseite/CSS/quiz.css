@@ -55,3 +55,30 @@ body{
 img{
   border: none;
 }
+
+/* POP UP */
+
+.popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 150px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 9999;
+}
+
+.popup p {
+  margin-top: 0;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+}
+
+/* POP UP */

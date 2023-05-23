@@ -64,6 +64,8 @@ function resetBoard() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
+/* POP UP */
+
 const API_URL = "https://publicapi.dev/random-useless-facts-api";
 
 function createRandomFact() {
@@ -76,4 +78,19 @@ function createRandomFact() {
       document.getElementById("random-fact").textContent = fakt;
     })
     .catch(error => console.error(error)); // Hier wird eine Fehlerbehandlung durchgeführt
+
+    function openPopup() {
+      document.getElementById("myPopup").style.display = "block";
+    }
+    
+
+
+
 }
+
+
+function closePopup() {
+  document.getElementById("myPopup").style.display = "none";
+}
+
+/* POP UP */
