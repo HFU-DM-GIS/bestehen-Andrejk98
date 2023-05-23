@@ -34,11 +34,19 @@ function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
 
-  function openPopup() {
-    document.getElementById("myPopup").style.display = "block";
-  }
+  
+  
 
+  document.getElementById("myPopup").style.visibility = "visible";
+  randomPopupPosition()
   createRandomFact();
+
+
+  setTimeout(() => {
+    document.getElementById("myPopup").style.visibility = "hidden";
+  }, 8000);
+
+
 
 
   resetBoard();
@@ -90,8 +98,21 @@ function createRandomFact() {
 }
 
 
-function closePopup() {
-  document.getElementById("myPopup").style.display = "none";
+  function randomPopupPosition(){
+  var element = document.getElementById('myPopup');
+  var viewportWidth = window.innerWidth;
+  var viewportHeight = window.innerHeight;
+
+  var randomLeft = Math.floor(Math.random() * (viewportWidth - element.offsetWidth));
+  var randomTop = Math.floor(Math.random() * (viewportHeight - element.offsetHeight));
+
+  element.style.left = randomLeft + 'px';
+  element.style.top = randomTop + 'px';
+};
+
+function closePopup(){
+  document.getElementById("myPopup").style.visibility = "hidden";
 }
+
 
 /* POP UP */
