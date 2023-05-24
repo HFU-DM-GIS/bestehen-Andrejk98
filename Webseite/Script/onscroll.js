@@ -9,15 +9,14 @@
   let zi = document.getElementById("zi");
 
 
-      /* Anlegen der Boolean Variablen, um später Code auszuführen, bzw. nicht auszuführen */
-  let isLarged = false;
-  let moved = false;
-
+  
 
 
       /* EventListener, der jedes mal den Code ausführt, wenn man scrollt. */
 window.addEventListener('scroll',function()
 {
+
+  
 
 
       /* Ort an dem sich das Viewport, relativ zur Gesamten Webseite befindet, bzw. wo die Scrollbar sich befindet */
@@ -63,11 +62,9 @@ window.addEventListener('scroll',function()
 
 
       /* Die Funktion wird alle 100ms ausgeführt und der Code der Abfrage nur, wenn die Funktion change(), noch nicht ausgeführt worden ist. */
-let interval = setInterval(function() {
-    if(isLarged == false){
-    change();
-    }
-  }, 100);
+      setInterval(function() {
+        change();
+        }, 100);
 
 
 
@@ -84,8 +81,9 @@ function change(){
       /* Wenn die rechte Kante der Fisch-Grafik größer oder gleich ist als wie die linke Kante der Ziel-Grafik und die Funktion
      noch nicht ausgeführt wurde, soll die Ziel-Grafik verschwinden und die Fisch-Grafik durch eine Hai-Grafik ersetzt werden. */
 
-    if (rectfi.right >= rectzi.left && isLarged == false) {
+    if (rectfi.right >= rectzi.left) {
         zi.style.visibility = "hidden";
+        fi.src = "";
         fi.src = "./Webseite/Bild/shark.png";
 
       }
@@ -94,6 +92,7 @@ function change(){
 
       else {
         zi.style.visibility = "visible";
+        fi.src = "";
         fi.src = "./Webseite/Bild/fish.png";
       }
 
