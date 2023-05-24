@@ -94,7 +94,7 @@ function change(){
 
       else {
         zi.style.visibility = "visible";
-        fi.src = "Bild/fish.png";
+        fi.src = "./Webseite/Bild/fish.png";
       }
 
 
