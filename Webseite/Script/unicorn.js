@@ -34,7 +34,7 @@ import {
   }
   
   export function setUnicornLose() {
-    unicornElem.src = "./Bild/Unicorn.png"
+    unicornElem.src = "./Unicorn.png"
   }
   
   function handleRun(delta, speedScale) {
