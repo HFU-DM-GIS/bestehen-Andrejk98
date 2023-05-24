@@ -34,12 +34,12 @@ import {
   }
   
   export function setUnicornLose() {
-    unicornElem.src = "./Bild/Unicorn.png"
+    unicornElem.src = "./Webseite/Bild/Unicorn.png"
   }
   
   function handleRun(delta, speedScale) {
     if (isJumping) {
-      unicornElem.src = `./Bild/Unicorn.png`
+      unicornElem.src = `./Webseite/Bild/Unicorn.png`
       return
     }
   
