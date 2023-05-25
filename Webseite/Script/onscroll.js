@@ -1,40 +1,57 @@
-let hi = document.getElementById("hi");
-let bo = document.getElementById("bo");
-let bi = document.getElementById("bi");
 
-let fi = document.getElementById("fi");
-let zi = document.getElementById("zi");
+      /* DOM-Elemente werden per IDs abgerufen und in einer Variable(Referenz) gespeichert, welche auf das DOM Element zeigt.    */
+
+  let hi = document.getElementById("hi");
+  let bo = document.getElementById("bo");
+  let bi = document.getElementById("bi");
+
+  let fi = document.getElementById("fi");
+  let zi = document.getElementById("zi");
 
 
+  
 
 
+      /* EventListener, der jedes mal den Code ausführt, wenn man scrollt. */
 window.addEventListener('scroll',function()
 {
 
-    const rect = fi.getBoundingClientRect();
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
 
+
+      /* Ort an dem sich das Viewport, relativ zur Gesamten Webseite befindet, bzw. wo die Scrollbar sich befindet */
     var value = window.scrollY;
+
+      /* Parallax Scrolling -> Himmel geht nach unten, Boden nach oben, Vögel nach links und der Text nach unten  */
     hi.style.top = value * 0.5 + 'px';
     bi.style.left = -value * 2 + 'px'; 
     bo.style.top = -value * 0.15 + 'px';
     text.style.top = value * 1 + 'px';
 
 
-    
-    if (value > 500) {
+      /* Wenn die Scrollbar (Position) über 300 ist, soll der Text, der sich nach unten bewegt, nicht mehr sichtbar sein. */
+    if (value > 300) {
         text.style.opacity = '0';
-        hi.style.opacity = '0';
     } else {
         text.style.opacity = '1';
-        hi.style.opacity = '1';  
     }
 
-    if(moved == false)
+      /* Wenn die Scrollbar (Position) über 450 ist, soll die Himmel-Grafik, die sich nach unten bewegt, nicht mehr sichtbar sein. */
+    if (value > 450) {
+      
+      hi.style.opacity = '0';
+  } else {
+      
+      hi.style.opacity = '1';  
+  }
+
+
+      
+      /* Ausführen der beiden Funktionen durch scrollen. */
+
     move();
-    if(isLarged == false){
-    grow();
-    }
+    change();
+  
 
 
     
@@ -44,38 +61,39 @@ window.addEventListener('scroll',function()
 
 
 
-
-let interval = setInterval(function() {
-    if(isLarged == false){
-    grow();
-    }
-  }, 100);
-
-let isLarged = false;
-let moved = false;
+      /* Die Funktion wird alle 100ms ausgeführt und der Code der Abfrage nur, wenn die Funktion change(), noch nicht ausgeführt worden ist. */
+      setInterval(function() {
+        change();
+        }, 100);
 
 
-function grow(){
+
+    
+function change(){
+
+      /* Gibt DOMRect-Objekte zurück, die Informationen über die Größe und Position der Elemente relativ zum Anzeigebereich des Viewports enthält. Diese werden hier
+      in einer Variable gespeichert, welche die Manipulation/Lokalisierung des Elements ermöglicht durch die Referenz. */
 
     let rectfi = fi.getBoundingClientRect();
     let rectzi = zi.getBoundingClientRect();
-    let scrolly = window.scrollY;
 
-    if (rectfi.right >= rectzi.left && isLarged == false) {
+
+      /* Wenn die rechte Kante der Fisch-Grafik größer oder gleich ist als wie die linke Kante der Ziel-Grafik und die Funktion
+     noch nicht ausgeführt wurde, soll die Ziel-Grafik verschwinden und die Fisch-Grafik durch eine Hai-Grafik ersetzt werden. */
+
+    if (rectfi.right >= rectzi.left) {
         zi.style.visibility = "hidden";
+        fi.src = "";
         fi.src = "./Webseite/Bild/shark.png";
-        
 
-        /* let currentWidth = parseFloat(window.getComputedStyle(fi).width);
-        let currentHeight = parseFloat(window.getComputedStyle(fi).height);
-        let newWidth = currentWidth * 1.2; 
-        let newHeight = currentHeight * 1.2; 
-        fi.style.width = newWidth + "px";
-        fi.style.height = newHeight + "px"; */
-        isLarged = true;
+      }
 
-        
+      /* Ansonsten soll die Fisch-Grafik bleiben, bzw wieder die Werte wieder zurückgesetzt werden */
 
+      else {
+        zi.style.visibility = "visible";
+        fi.src = "";
+        fi.src = "./Webseite/Bild/fish.png";
       }
 
 
@@ -85,29 +103,30 @@ function grow(){
 
 
 
+
 function move() {
-
-    let rectfi = fi.getBoundingClientRect();
-    let rectzi = zi.getBoundingClientRect();
-    let scrolly = window.scrollY;
-
-    if (rectfi.top < window.innerHeight && rectfi.bottom > 0) {
   
+  let rectfi = fi.getBoundingClientRect();
+  let rectzi = zi.getBoundingClientRect();
+
+  /* Wenn die obere Kante der Fisch-Grafik kleiner als die Fensterhöhe ist und die untere Kante größer als 0 ist,
+   bedeutet das, dass sich die Fisch-Grafik im sichtbaren Bereich des Bildschirms befindet. */
+
+  if (rectfi.top < window.innerHeight && rectfi.bottom > 0) {
+
+      /* Der Übergangseffekt und die Transformationsanimation werden auf das DOM-Element 'fi' angewendet, um es horizontal zu verschieben. */
       fi.style.transition = 'transform 4s ease'; 
-        fi.style.transform = `translateX(${rectzi.left - 150}px)`;
-        
-        moved = true;
-
+      fi.style.transform = `translateX(${rectzi.left - 150}px)`;
       
-    } else {
-      console.log('Nicht im Bildschirm');
-        fi.style.transition = 'transform 2s ease'; 
-        fi.style.transform = 'translateX(0)';
-    }
-
-
-    
+      
+      
+  } else {
+      
+      /* Wenn sich die Fisch-Grafik nicht mehr im sichtbaren Bereich des Bildschirms befindet, wird sie wieder in ihre ursprüngliche Position zurückversetzt. */
+      fi.style.transition = 'transform 2s ease'; 
+      fi.style.transform = 'translateX(0)';
   }
+}
 
 
 

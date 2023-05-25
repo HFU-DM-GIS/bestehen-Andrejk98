@@ -42,7 +42,7 @@ import {
   function createFlower() {
     const flower = document.createElement("img")
     flower.dataset.flower = true
-    flower.src = "./Bild/Flower 1.png"
+    flower.src = "./Webseite/Bild/Flower 1.png"
     flower.classList.add("flower")
     setCustomProperty(flower, "--left", 100)
     worldElem.append(flower)
