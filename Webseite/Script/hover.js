@@ -3,7 +3,6 @@ b.addEventListener("mouseover", moveHover);
 var container = document.getElementById("buttoncontainer");
 
 function moveHover(){
-
     var containerRect = container.getBoundingClientRect();
     var containerWidth = containerRect.width;
     var containerHeight = containerRect.height;
@@ -21,5 +20,4 @@ function moveHover(){
     b.style.position = "absolute";
     b.style.left = i + "px";
     b.style.top = j + "px";
-
 }
