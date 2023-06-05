@@ -24,6 +24,7 @@ function flipCard() {
   checkForMatch();
 }
 
+//The code checks for a match between the two cards. If there is a match, it will disable the cards and if not, it will flip them over.
 function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
@@ -34,9 +35,6 @@ function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
 
-  
-  
-
   document.getElementById("myPopup").style.visibility = "visible";
   randomPopupPosition()
   createRandomFact();
@@ -45,9 +43,6 @@ function disableCards() {
   setTimeout(() => {
     document.getElementById("myPopup").style.visibility = "hidden";
   }, 8000);
-
-
-
 
   resetBoard();
 }
