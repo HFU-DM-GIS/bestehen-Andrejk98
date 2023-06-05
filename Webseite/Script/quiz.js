@@ -81,19 +81,18 @@ function createRandomFact() {
   fetch('https://uselessfacts.jsph.pl/random.json?language=de')
     .then(response => response.json()) // Hier wird die Antwort in JSON umgewandelt
     .then(data => {
-      const fakt = data.text; // Hier wird der zufällige Fakt aus dem JSON-Objekt extrahiert
+      const fact = data.text; // Hier wird der zufällige Fakt aus dem JSON-Objekt extrahiert
       // Hier wird der Fakt in das HTML-Dokument eingefügt
-
       
-      document.getElementById("random-fact").textContent = fakt;
+      document.getElementById("random-fact").textContent = fact;
     })
     .catch(error => console.error(error)); // Hier wird eine Fehlerbehandlung durchgeführt
 
-    
+
 }
 
 
-  function randomPopupPosition(){
+function randomPopupPosition() {
   var element = document.getElementById('myPopup');
   var viewportWidth = window.innerWidth;
   var viewportHeight = window.innerHeight;
@@ -105,7 +104,7 @@ function createRandomFact() {
   element.style.top = randomTop + 'px';
 };
 
-function closePopup(){
+function closePopup() {
   document.getElementById("myPopup").style.visibility = "hidden";
 }
 
