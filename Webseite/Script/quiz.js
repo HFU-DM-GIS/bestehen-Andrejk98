@@ -4,6 +4,7 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+//Flips the Cards around and then procedes to call the function checkForMatch
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
@@ -28,10 +29,11 @@ function flipCard() {
 function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
-  isMatch ? disableCards() : unflipCards();
+  isMatch ? disableCardsandcreateFact() : unflipCards();
 }
 
-function disableCards() {
+//Disables the Cards by removing the EventListener "click" and creates a Pop-Up with a random Fact
+function disableCardsandcreateFact() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
 
@@ -47,6 +49,7 @@ function disableCards() {
   resetBoard();
 }
 
+//Function unflips the Cards if they don´t match by removing the classList "flip"
 function unflipCards() {
   lockBoard = true;
 
@@ -58,11 +61,13 @@ function unflipCards() {
   }, 1500);
 }
 
+//Resets the Board after a Match by putting everything to false or null
 function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
 }
 
+//Sets a random position for every Card
 (function shuffle() {
   cards.forEach(card => {
     let randomPos = Math.floor(Math.random() * 12);
