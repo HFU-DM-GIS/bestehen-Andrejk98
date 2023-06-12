@@ -41,8 +41,7 @@ function disableCardsandcreateFact() {
   randomPopupPosition()
   createRandomFact();
 
-  window.localStorage.setItem(firstCard);
-  window.localStorage.setItem(secondCard);
+  window.localStorage.setItem(firstCard, secondCard);
 
   setTimeout(() => {
     document.getElementById("myPopup").style.visibility = "hidden";
