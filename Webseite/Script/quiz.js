@@ -41,7 +41,7 @@ function disableCardsandcreateFact() {
   randomPopupPosition()
   createRandomFact();
 
-  console.log(dataset.framework);
+  console.log(firstCard.dataset.framework);
 
   window.localStorage.setItem(firstCard, secondCard);
 
