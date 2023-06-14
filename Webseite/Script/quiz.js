@@ -41,10 +41,9 @@ function disableCardsandcreateFact() {
   randomPopupPosition()
   createRandomFact();
 
+  window.localStorage.setItem(firstCard.dataset.framework);
   console.log(firstCard.dataset.framework);
-
-  window.localStorage.setItem(firstCard, secondCard);
-
+  
   setTimeout(() => {
     document.getElementById("myPopup").style.visibility = "hidden";
   }, 8000);
