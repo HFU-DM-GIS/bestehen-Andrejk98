@@ -34,7 +34,7 @@ body{
 }
 
 .memory-card.flip {
-  transform: rotatex(180deg);
+  transform: rotateX(180deg);
 }
 
 .front-face,
