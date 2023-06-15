@@ -43,7 +43,7 @@ function disableCardsandcreateFact() {
 
   // window.localStorage.setItem("Question",firstCard.dataset.framework);
   // console.log(firstCard.dataset.framework);
-  
+
   setTimeout(() => {
     document.getElementById("myPopup").style.visibility = "hidden";
   }, 8000);
@@ -72,7 +72,7 @@ function resetBoard() {
 //Sets a random position for every Card
 (function shuffle() {
   cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 32);
+    let randomPos = Math.floor(Math.random() * 12);
     card.style.order = randomPos;
   });
 })();
