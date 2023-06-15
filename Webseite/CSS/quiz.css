@@ -9,8 +9,8 @@ body{
 }
 
 .memory-game {
-  width: 64vw;
-  height: 64vw;
+  width: 100vw;
+  height: 100vw;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
