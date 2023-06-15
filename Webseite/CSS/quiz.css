@@ -34,7 +34,7 @@ body{
 }
 
 .memory-card.flip {
-  transform: rotateY(180deg);
+  transform: rotatex(180deg);
 }
 
 .front-face,
@@ -49,7 +49,7 @@ body{
 }
 
 .front-face {
-  transform: rotateX(180deg);
+  transform: rotateY(180deg);
 }
 
 /*
