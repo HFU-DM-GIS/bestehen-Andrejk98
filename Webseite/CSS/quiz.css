@@ -35,16 +35,16 @@ body{
   transform: translate(-50%, -50%);
   }
 
-.memory-card .card-text {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: left; /* Text linksbündig ausrichten */
-  overflow: auto; /* Fügt eine Scrollleiste hinzu, wenn der Text den verfügbaren Platz überschreitet */
-  max-height: 200px; /* Legt die maximale Höhe der Karteninhalte fest */
-}
+  .memory-card .card-text {
+    width: 120%; /* Breite auf 120% erhöhen */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left; /* Text linksbündig ausrichten */
+    white-space: nowrap; /* Verhindert den Zeilenumbruch des Textes */
+    overflow: hidden; /* Verhindert das Scrollen und blendet den Text, der über die Karte hinausgeht, aus */
+  }
 
 
 .memory-card:active {
