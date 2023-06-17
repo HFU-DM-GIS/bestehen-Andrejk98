@@ -36,7 +36,7 @@ body{
   }
 
   .memory-card .card-text {
-    width: 120%; /* Breite auf 120% erhöhen */
+    width: 150%; /* Breite auf 150% erhöhen */
     height: 100%;
     display: flex;
     justify-content: center;
