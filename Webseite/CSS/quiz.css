@@ -34,6 +34,8 @@ body{
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  overflow: auto; /* Fügt eine Scrollleiste hinzu, wenn der Text den verfügbaren Platz überschreitet */
+  max-height: 200px; /* Legt die maximale Höhe der Karteninhalte fest */
 }
 .memory-card:active {
   transform: scale(0.97);
