@@ -44,7 +44,7 @@ body{
 
   .memory-card .card-content p {
     text-align: left; /* Text linksbündig ausrichten */
-    white-space: pre-line; /* Zeilen Umbruch */
+    
     text-overflow: ellipsis; /* Fügt Auslassungspunkte hinzu, wenn der Text zu lang ist */
     overflow: hidden;
   }
