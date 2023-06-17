@@ -42,7 +42,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: left; /* Text linksbündig ausrichten */
-    white-space: nowrap; /* Verhindert den Zeilenumbruch des Textes */
+    /*white-space: nowrap; /* Verhindert den Zeilenumbruch des Textes */
     overflow: hidden; /* Verhindert das Scrollen und blendet den Text, der über die Karte hinausgeht, aus */
   }
 
