@@ -34,7 +34,17 @@ body{
   left: 50%;
   transform: translate(-50%, -50%);
   width: 140%; /* Breite auf 120% erhöhen */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: left; /* Text linksbündig */
+  overflow: hidden;
+  }
+
+  .memory-card .card-content p {
+    white-space: nowrap; /* Verhindert den Zeilenumbruch des Textes */
+    text-overflow: ellipsis; /* Fügt Auslassungspunkte hinzu, wenn der Text zu lang ist */
   }
 
   /*.memory-card .card-text {
