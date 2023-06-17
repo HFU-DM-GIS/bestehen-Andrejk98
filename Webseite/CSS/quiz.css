@@ -33,7 +33,7 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 140%; /* Breite auf 120% erhöhen */
+  width: 120%; /* Breite auf 120% erhöhen */
   height: 100%;
   display: flex;
   justify-content: center;
