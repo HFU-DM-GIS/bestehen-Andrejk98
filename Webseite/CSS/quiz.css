@@ -39,7 +39,7 @@ body{
   justify-content: center;
   align-items: center;
   padding-left: 15px; /* Passe den Wert an, um den gewünschten Abstand zu erreichen */
-
+  padding-right: 15px;
     }
 
   .memory-card .card-content p {
