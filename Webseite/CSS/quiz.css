@@ -39,7 +39,7 @@ body{
   justify-content: center;
   align-items: center;
   padding-left: 15px; /* Passe den Wert an, um den gewünschten Abstand zu erreichen */
-  padding-right: 15px;
+  padding-right: 10px;
     }
 
   .memory-card .card-content p {
@@ -47,7 +47,7 @@ body{
     
     text-overflow: ellipsis; /* Fügt Auslassungspunkte hinzu, wenn der Text zu lang ist */
     overflow: hidden;
-    padding-right: 15px;
+    padding-right: 10px;
   }
 
   /*.memory-card .card-text {
