@@ -38,13 +38,13 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: left; /* Text linksbündig */
-  overflow: hidden;
-  }
+    }
 
   .memory-card .card-content p {
+    text-align: left; /* Text linksbündig ausrichten */
     white-space: nowrap; /* Verhindert den Zeilenumbruch des Textes */
     text-overflow: ellipsis; /* Fügt Auslassungspunkte hinzu, wenn der Text zu lang ist */
+    overflow: hidden;
   }
 
   /*.memory-card .card-text {
