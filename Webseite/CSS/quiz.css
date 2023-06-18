@@ -90,6 +90,8 @@
 .resetButton{
   display: flex;
   margin: 0 auto;
+  width: 4vw;
+  height: 2vw;
 }
 
 /* POP UP */
