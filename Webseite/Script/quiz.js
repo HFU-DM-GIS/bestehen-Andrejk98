@@ -80,7 +80,8 @@ function resetBoard() {
 cards.forEach(card => card.addEventListener('click', flipCard));
 
 function clearLocalStorage() {
-  localStorage.clear()
+  localStorage.clear();
+  location.reload();
 }
 
 /* POP UP */
