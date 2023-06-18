@@ -87,11 +87,9 @@
   transform: rotateX(180deg);
 }
 
-/*
-img{
-  border: none;
+.resetButton{
+  margin: 0 auto;
 }
-*/
 
 /* POP UP */
 
