@@ -79,6 +79,10 @@ function resetBoard() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
+function clearLocalStorage() {
+  localStorage.clear()
+}
+
 /* POP UP */
 
 const API_URL = "https://publicapi.dev/random-useless-facts-api";
