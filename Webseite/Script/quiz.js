@@ -4,6 +4,8 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+const cardArray = [];
+
 //Flips the Cards around and then procedes to call the function checkForMatch
 function flipCard() {
   if (lockBoard) return;
