@@ -92,8 +92,7 @@
   margin: 0 auto;
   width: 8vw;
   height: 1.5vw;
-  text-align: center;
-  vertical-align: middle;
+  align-content: center;
   padding: 0;
 }
 
