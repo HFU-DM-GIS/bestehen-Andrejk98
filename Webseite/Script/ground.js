@@ -4,7 +4,7 @@ import {
     setCustomProperty,
   } from "./updateCustomProperty.js"
   
-  const SPEED = 0.03; // Höhere Werte für schnellere Bewegung, niedrigere Werte für langsamere Bewegung (und größeren Abstand zwischen den Blumen)
+  const SPEED = 0.01; // Höhere Werte für schnellere Bewegung, niedrigere Werte für langsamere Bewegung (und größeren Abstand zwischen den Blumen)
   const groundElems = document.querySelectorAll("[data-ground]")
   
   export function setupGround() {
