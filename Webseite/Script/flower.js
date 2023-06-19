@@ -5,7 +5,7 @@ import {
   } from "./updateCustomProperty.js"
   
   const SPEED = 0.05
-  const FLOWER_INTERVAL_MIN = 500
+  const FLOWER_INTERVAL_MIN = 800; // Erhöhe den Wert für einen größeren Abstand zwischen den Blumen
   const FLOWER_INTERVAL_MAX = 2000
   const worldElem = document.querySelector("[data-world]")
   
