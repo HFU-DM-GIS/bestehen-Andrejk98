@@ -5,7 +5,7 @@ import {
   } from "./updateCustomProperty.js"
   
   const unicornElem = document.querySelector("[data-unicorn]")
-  const JUMP_SPEED = 0.5; // Höhere Werte für höhere Sprünge, niedrigere Werte für niedrigere Sprünge
+  const JUMP_SPEED = 0.4; // Höhere Werte für höhere Sprünge, niedrigere Werte für niedrigere Sprünge
   const GRAVITY = 0.0015
   const UNICORN_FRAME_COUNT = 2 
   const FRAME_TIME = 100
