@@ -3,8 +3,17 @@ const cards = document.querySelectorAll('.memory-card');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let id = 1;
 
-const cardArray = [];
+let answeredQuestions = window.localStorage.getItem("Question");
+cards.forEach(card => {
+  if(card.dataset.framework == answeredQuestions){
+    card.removeEventListener("click", flipCard);
+    console.log(card);
+    
+  }
+  
+});
 
 //Flips the Cards around and then procedes to call the function checkForMatch
 function flipCard() {
@@ -34,6 +43,7 @@ function checkForMatch() {
   isMatch ? disableCardsandcreateFact() : unflipCards();
 }
 
+
 //Disables the Cards by removing the EventListener "click" and creates a Pop-Up with a random Fact
 function disableCardsandcreateFact() {
   firstCard.removeEventListener('click', flipCard);
@@ -42,10 +52,10 @@ function disableCardsandcreateFact() {
   document.getElementById("myPopup").style.visibility = "visible";
   randomPopupPosition()
   createRandomFact();
-
-  window.localStorage.setItem("Question",firstCard.dataset.framework);
+  
+  window.localStorage.setItem("Question" + id++, JSON.stringify(firstCard.dataset.framework));
   console.log(firstCard.dataset.framework);
-
+  
   setTimeout(() => {
     document.getElementById("myPopup").style.visibility = "hidden";
   }, 8000);
