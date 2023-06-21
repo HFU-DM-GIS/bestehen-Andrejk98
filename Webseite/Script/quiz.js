@@ -25,12 +25,16 @@ if (typeof(Storage) !== "undefined") {
   if (flippedCardsData) {
     const flippedCards = JSON.parse(flippedCardsData);
     flippedCards.forEach(cardData => {
+      console.log("card-data",cardData)
     /*  const card = document.getElementById(cardId);
     if (card) {
       card.classList.add('flip');
       card.removeEventListener('click', flipCard);*/
-      const card = Array.from(cards).find(card => card.getAttribute('data-framework') === cardData.framework);
-      if (card) {
+      let card = null;
+      card = Array.from(cards).find(card => card.getAttribute('data-framework') === cardData.framework);
+      console.log("card",card)
+      if (card != null) {
+        console.log("id",card.getAttribute('data-framework'))
         card.classList.add('flip');
         card.removeEventListener('click', flipCard);
     }
@@ -78,6 +82,10 @@ function flipCard() {
     secondCard = this;
     checkForMatch();
   }
+  // firstCard = null;
+  // secondCard = null;
+  // hasFlippedCard = false
+  resetBoard();
 }
 //neu ende
 
@@ -103,6 +111,7 @@ function checkForMatch() {
   } else {
     unflipCards();
   }
+
 }
 //neu ende
 
@@ -154,14 +163,20 @@ function resetBoard() {
 //neu
 function saveFlippedCardsToLocalStorage() {
   let flippedCards = [];
-  cards.forEach(card => {
-    if (card.classList.contains('flip')) {
-      //flippedCards.push(card.id);
-      flippedCards.push({
-        framework: card.getAttribute('data-framework')
-      });
-    }
-  });
+  flippedCards.push({
+    framework: firstCard.getAttribute('data-framework')
+  })
+  flippedCards.push({
+    framework: secondCard.getAttribute('data-framework')
+  })
+  // cards.forEach(card => {
+  //   if (card.classList.contains('flip')) {
+  //     //flippedCards.push(card.id);
+  //     flippedCards.push({
+  //       framework: card.getAttribute('data-framework')
+  //     });
+  //   }
+  // });
 //neu ende
 
 //neu
