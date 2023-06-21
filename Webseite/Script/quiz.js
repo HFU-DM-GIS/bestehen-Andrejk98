@@ -160,18 +160,18 @@ function resetBoard() {
 
 //neu
   function saveFlippedCardsToLocalStorage() {
-  console.log(cards)
-  cards.forEach(card => {
-    if (card.classList.contains('flip')) {
-      console.log(card)
-      if (!flippedCards.includes((card)=>card.framework === card.getAttribute('data-framework'))) {
-        flippedCards.push({
-          framework: card.getAttribute('data-framework')
-        });
-      }
+console.log(flippedCards);
+cards.forEach(card => {
+  if (card.classList.contains('flip')) {
+    console.log(card);
+    if (!flippedCards.some(flippedCard => flippedCard.framework === card.getAttribute('data-framework'))) {
+      flippedCards.push({
+        framework: card.getAttribute('data-framework')
+      });
     }
-  });
-    console.log(cards)
+  }
+});
+console.log(flippedCards);
 //neu ende
 
 //neu
