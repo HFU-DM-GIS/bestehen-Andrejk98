@@ -162,12 +162,11 @@ function resetBoard() {
 function saveFlippedCardsToLocalStorage() {
   cards.forEach(card => {
     if (card.classList.contains('flip')) {
-      if (flippedCards.includes(card)) {
-        return;
+      if (!flippedCards.includes(card)) {
+        flippedCards.push({
+          framework: card.getAttribute('data-framework')
+        });
       }
-      flippedCards.push({
-        framework: card.getAttribute('data-framework')
-      });
     }
   });
 //neu ende
