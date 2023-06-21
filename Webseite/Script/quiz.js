@@ -15,6 +15,79 @@ cards.forEach(card => {
   
 });
 
+// Speichere eine Referenz auf die umgedrehte Karte im Local Storage
+function saveFlippedCard(cardId) {
+  var flippedCards = JSON.parse(localStorage.getItem("flippedCards")) || [];
+  flippedCards.push(cardId);
+  localStorage.setItem("flippedCards", JSON.stringify(flippedCards));
+}
+
+// Lade die umgedrehten Karten aus dem Local Storage
+function loadFlippedCards() {
+  var flippedCards = JSON.parse(localStorage.getItem("flippedCards")) || [];
+  return flippedCards;
+}
+
+// Entferne die umgedrehte Karte aus dem Local Storage
+function removeFlippedCard(cardId) {
+  var flippedCards = JSON.parse(localStorage.getItem("flippedCards")) || [];
+  var index = flippedCards.indexOf(cardId);
+  if (index > -1) {
+    flippedCards.splice(index, 1);
+    localStorage.setItem("flippedCards", JSON.stringify(flippedCards));
+  }
+}
+
+// Eventlistener hinzufügen, der auf das Laden der Seite wartet
+document.addEventListener("DOMContentLoaded", function() {
+  // Überprüfen, ob der Local Storage unterstützt wird
+  if (typeof Storage !== "undefined") {
+    // Code zum Laden der umgedrehten Karten aus dem Local Storage
+    var flippedCards = loadFlippedCards();
+
+    // Füge den umgedrehten Karten die entsprechenden Klassen hinzu
+    flippedCards.forEach(function(cardId) {
+      var card = document.getElementById(cardId);
+      card.classList.add("flipped");
+    });
+  } else {
+    // Local Storage wird nicht unterstützt
+    console.log("Local Storage wird nicht unterstützt.");
+  }
+});
+
+// Eventlistener für den "Restore"-Button hinzufügen
+var restoreButton = document.getElementById("restoreButton");
+restoreButton.addEventListener("click", function() {
+  // Code zum Laden der umgedrehten Karten ausführen
+  var flippedCards = loadFlippedCards();
+
+  // Füge den umgedrehten Karten die entsprechenden Klassen hinzu
+  flippedCards.forEach(function(cardId) {
+    var card = document.getElementById(cardId);
+    card.classList.add("flipped");
+  });
+});
+
+// Eventlistener für das Umgedreht-Klicken der Karten hinzufügen
+var cards = document.getElementsByClassName("card");
+for (var i = 0; i < cards.length; i++) {
+  cards[i].addEventListener("click", function() {
+    // Code zum Umdrehen der Karte ausführen
+    this.classList.toggle("flipped");
+
+    // Überprüfen, ob die Karte umgedreht ist
+    if (this.classList.contains("flipped")) {
+      // Speichere die umgedrehte Karte im Local Storage
+      saveFlippedCard(this.id);
+    } else {
+      // Entferne die umgedrehte Karte aus dem Local Storage
+      removeFlippedCard(this.id);
+    }
+  });
+}
+
+
 //Flips the Cards around and then procedes to call the function checkForMatch
 function flipCard() {
   if (lockBoard) return;
