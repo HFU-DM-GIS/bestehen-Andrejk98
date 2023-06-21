@@ -101,9 +101,7 @@ function checkForMatch() {
 function disableCardsandcreateFact() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
-  //neu
-  saveFlippedCardsToLocalStorage();
-  //neu ende
+ 
 
   document.getElementById("myPopup").style.visibility = "visible";
   randomPopupPosition()
@@ -111,7 +109,10 @@ function disableCardsandcreateFact() {
   
  /* window.localStorage.setItem("Question" + id++, JSON.stringify(firstCard.dataset.framework));
   console.log(firstCard.dataset.framework);*/
-  
+   //neu
+  saveFlippedCardsToLocalStorage();
+  //neu ende
+
   setTimeout(() => {
     document.getElementById("myPopup").style.visibility = "hidden";
   }, 8000);
@@ -150,6 +151,8 @@ function saveFlippedCardsToLocalStorage() {
 //neu
 localStorage.setItem('flippedCards', JSON.stringify(flippedCards));
 //neu ende
+
+}
 
 //Sets a random position for every Card
 (function shuffle() {
