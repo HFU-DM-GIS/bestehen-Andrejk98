@@ -122,10 +122,12 @@ function disableCardsandcreateFact() {
 
 
   setTimeout(() => {
-    document.getElementById("myPopup").style.visibility = "hidden";
+  /*  document.getElementById("myPopup").style.visibility = "hidden";
   }, 8000);
-
-  resetBoard();
+    resetBoard();*/
+  document.getElementById("myPopup").style.visibility = "hidden";
+  unflipCards();
+}, 8000);
 }
 
 //Function unflips the Cards if they don´t match by removing the classList "flip"
@@ -173,7 +175,7 @@ localStorage.setItem('flippedCards', JSON.stringify(flippedCards));
   });
 })();
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+//cards.forEach(card => card.addEventListener('click', flipCard));
 
 
 
@@ -216,7 +218,7 @@ function randomPopupPosition() {
 
 function closePopup() {
   document.getElementById("myPopup").style.visibility = "hidden";
+  }
 }
-
 
 /* POP UP */
