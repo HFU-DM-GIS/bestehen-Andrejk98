@@ -126,7 +126,7 @@ function disableCardsandcreateFact() {
   }, 8000);
     resetBoard();*/
   document.getElementById("myPopup").style.visibility = "hidden";
-  unflipCards();
+  // unflipCards();
 }, 8000);
 }
 
