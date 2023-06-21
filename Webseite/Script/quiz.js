@@ -22,7 +22,7 @@ if (typeof(Storage) !== "undefined") {
 
   //neu
   // Überprüfen, ob der Local Storage bereits Daten enthält
-  const flippedCardsData = window.localStorage.getItem('flippedCards');
+  const flippedCardsData = localStorage.getItem('flippedCards');
   if (flippedCardsData) {
     flippedCards = JSON.parse(flippedCardsData);
     flippedCards.forEach(cardData => {
@@ -180,7 +180,7 @@ function saveFlippedCardsToLocalStorage() {
 //neu ende
 
 //neu
-window.localStorage.setItem('flippedCards', JSON.stringify(flippedCards));
+localStorage.setItem('flippedCards', JSON.stringify(flippedCards));
 //neu ende
 
 }
