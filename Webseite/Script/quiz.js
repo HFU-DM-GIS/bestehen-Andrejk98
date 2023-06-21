@@ -1,6 +1,7 @@
 if (typeof(Storage) !== "undefined") {
   const cards = document.querySelectorAll('.memory-card');
 
+  let flippedCards = [];
   let hasFlippedCard = false;
   let lockBoard = false;
   let firstCard, secondCard;
@@ -23,15 +24,14 @@ if (typeof(Storage) !== "undefined") {
   // Überprüfen, ob der Local Storage bereits Daten enthält
   const flippedCardsData = localStorage.getItem('flippedCards');
   if (flippedCardsData) {
-    const flippedCards = JSON.parse(flippedCardsData);
+    flippedCards = JSON.parse(flippedCardsData);
     flippedCards.forEach(cardData => {
       console.log("card-data",cardData)
     /*  const card = document.getElementById(cardId);
     if (card) {
       card.classList.add('flip');
       card.removeEventListener('click', flipCard);*/
-      let card = null;
-      card = Array.from(cards).find(card => card.getAttribute('data-framework') === cardData.framework);
+      const card = Array.from(cards).find(card => card.getAttribute('data-framework') === cardData.framework);
       console.log("card",card)
       if (card != null) {
         console.log("id",card.getAttribute('data-framework'))
@@ -162,21 +162,21 @@ function resetBoard() {
 
 //neu
 function saveFlippedCardsToLocalStorage() {
-  let flippedCards = [];
-  flippedCards.push({
-    framework: firstCard.getAttribute('data-framework')
-  })
-  flippedCards.push({
-    framework: secondCard.getAttribute('data-framework')
-  })
-  // cards.forEach(card => {
-  //   if (card.classList.contains('flip')) {
-  //     //flippedCards.push(card.id);
-  //     flippedCards.push({
-  //       framework: card.getAttribute('data-framework')
-  //     });
-  //   }
-  // });
+  
+  // flippedCards.push({
+  //   framework: firstCard.getAttribute('data-framework')
+  // })
+  // flippedCards.push({
+  //   framework: secondCard.getAttribute('data-framework')
+  // })
+  cards.forEach(card => {
+    if (card.classList.contains('flip')) {
+      //flippedCards.push(card.id);
+      flippedCards.push({
+        framework: card.getAttribute('data-framework')
+      });
+    }
+  });
 //neu ende
 
 //neu
