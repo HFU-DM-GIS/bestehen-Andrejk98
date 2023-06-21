@@ -16,23 +16,7 @@ cards.forEach(card => {
 });
 
 
-// Eventlistener für das Umgedreht-Klicken der Karten hinzufügen
-var cards = document.getElementsByClassName("card");
-for (var i = 0; i < cards.length; i++) {
-  cards[i].addEventListener("click", function() {
-    // Code zum Umdrehen der Karte ausführen
-    this.classList.toggle("flipped");
 
-    // Überprüfen, ob die Karte umgedreht ist
-    if (this.classList.contains("flipped")) {
-      // Speichere die umgedrehte Karte im Local Storage
-      saveFlippedCard(this.id);
-    } else {
-      // Entferne die umgedrehte Karte aus dem Local Storage
-      removeFlippedCard(this.id);
-    }
-  });
-}
 
 
 //Flips the Cards around and then procedes to call the function checkForMatch
