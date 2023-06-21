@@ -111,7 +111,7 @@ function checkForMatch() {
   } else {
     unflipCards();
   }
-resetBoard();
+// resetBoard();
 }
 //neu ende
 
@@ -139,6 +139,7 @@ function disableCardsandcreateFact() {
     resetBoard();*/
   document.getElementById("myPopup").style.visibility = "hidden";
   // unflipCards();
+    resetBoard();
 }, 8000);
 }
 
