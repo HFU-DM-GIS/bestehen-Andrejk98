@@ -3,9 +3,10 @@ const cards = document.querySelectorAll('.memory-card');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-let id = 1;
+//let id = 1;
 
-let answeredQuestions = window.localStorage.getItem("Question");
+//alt
+/*let answeredQuestions = window.localStorage.getItem("Question");
 cards.forEach(card => {
   if(card.dataset.framework == answeredQuestions){
     card.removeEventListener("click", flipCard);
@@ -14,13 +15,27 @@ cards.forEach(card => {
   }
   
 });
+*/
+//alt ende
 
+//neu
+// Überprüfen, ob der Local Storage bereits Daten enthält
+const flippedCardsData = localStorage.getItem('flippedCards');
+if (flippedCardsData) {
+  const flippedCards = JSON.parse(flippedCardsData);
+  flippedCards.forEach(cardId => {
+    const card = document.getElementById(cardId);
+    card.classList.add('flip');
+    card.removeEventListener('click', flipCard);
+  });
+}
 
+cards.forEach(card => card.addEventListener('click', flipCard));
+//neu ende
 
-
-
+//alt
 //Flips the Cards around and then procedes to call the function checkForMatch
-function flipCard() {
+/*function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
 
@@ -38,27 +53,64 @@ function flipCard() {
   secondCard = this;
 
   checkForMatch();
-}
+}*/
+//alt ende
 
+//neu
+function flipCard() {
+  if (lockBoard) return;
+  if (this === firstCard) return;
+  this.classList.add('flip');
+
+  if (!hasFlippedCard) {
+    // erste Karte
+    hasFlippedCard = true;
+    firstCard = this;
+  } else {
+    // zweite Karte
+    hasFlippedCard = false;
+    secondCard = this;
+    checkForMatch();
+  }
+}
+//neu ende
+
+//alt
 //The code checks for a match between the two cards. If there is a match, it will disable the cards and if not, it will flip them over.
-function checkForMatch() {
+/*function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
   isMatch ? disableCardsandcreateFact() : unflipCards();
+}*/
+//alt ende
+
+//neu
+function checkForMatch() {
+  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+
+  if (isMatch) {
+    disableCardsandcreateFact();
+  } else {
+    unflipCards();
+  }
 }
+//neu ende
 
 
 //Disables the Cards by removing the EventListener "click" and creates a Pop-Up with a random Fact
 function disableCardsandcreateFact() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
+  //neu
+  saveFlippedCardsToLocalStorage();
+  //neu ende
 
   document.getElementById("myPopup").style.visibility = "visible";
   randomPopupPosition()
   createRandomFact();
   
-  window.localStorage.setItem("Question" + id++, JSON.stringify(firstCard.dataset.framework));
-  console.log(firstCard.dataset.framework);
+ /* window.localStorage.setItem("Question" + id++, JSON.stringify(firstCard.dataset.framework));
+  console.log(firstCard.dataset.framework);*/
   
   setTimeout(() => {
     document.getElementById("myPopup").style.visibility = "hidden";
@@ -85,6 +137,20 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 
+//neu
+function saveFlippedCardsToLocalStorage() {
+  let flippedCards = [];
+  cards.forEach(card => {
+    if (card.classList.contains('flip')) {
+      flippedCards.push(card.id);
+  }
+});
+//neu ende
+
+//neu
+localStorage.setItem('flippedCards', JSON.stringify(flippedCards));
+//neu ende
+
 //Sets a random position for every Card
 (function shuffle() {
   cards.forEach(card => {
@@ -94,6 +160,8 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+
 
 function clearLocalStorage() {
   localStorage.clear();
