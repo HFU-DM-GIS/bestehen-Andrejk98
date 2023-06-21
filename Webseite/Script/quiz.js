@@ -26,15 +26,12 @@ if (typeof(Storage) !== "undefined") {
   if (flippedCardsData) {
     flippedCards = JSON.parse(flippedCardsData);
     flippedCards.forEach(cardData => {
-      console.log("card-data",cardData)
     /*  const card = document.getElementById(cardId);
     if (card) {
       card.classList.add('flip');
       card.removeEventListener('click', flipCard);*/
       const card = Array.from(cards).find(card => card.getAttribute('data-framework') === cardData.framework);
-      console.log("card",card)
       if (card != null) {
-        console.log("id",card.getAttribute('data-framework'))
         card.classList.add('flip');
         card.removeEventListener('click', flipCard);
     }
@@ -100,14 +97,10 @@ function flipCard() {
 
 //neu
 function checkForMatch() {
-  //  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-  // let isMatch = firstCard.getAttribute('data-framework') === secondCard.getAttribute('data-framework');
   const firstAttr = firstCard.getAttribute('data-framework').split("-")
   const secondAttr = secondCard.getAttribute('data-framework').split("-")
 
   const isMatch = firstAttr[1] === secondAttr[1]
-
-  console.log("ismatch",isMatch)
   
   if (isMatch) {
  
@@ -167,16 +160,11 @@ function resetBoard() {
 
 //neu
 function saveFlippedCardsToLocalStorage() {
-  
-  // flippedCards.push({
-  //   framework: firstCard.getAttribute('data-framework')
-  // })
-  // flippedCards.push({
-  //   framework: secondCard.getAttribute('data-framework')
-  // })
   cards.forEach(card => {
     if (card.classList.contains('flip')) {
-      //flippedCards.push(card.id);
+      if (flippedCards.includes(card)) {
+        return;
+      }
       flippedCards.push({
         framework: card.getAttribute('data-framework')
       });
