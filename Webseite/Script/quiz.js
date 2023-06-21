@@ -1,33 +1,38 @@
-const cards = document.querySelectorAll('.memory-card');
+if (typeof(Storage) !== "undefined") {
+  const cards = document.querySelectorAll('.memory-card');
 
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
-//let id = 1;
+  let hasFlippedCard = false;
+  let lockBoard = false;
+  let firstCard, secondCard;
+  //let id = 1;
 
-//alt
-/*let answeredQuestions = window.localStorage.getItem("Question");
-cards.forEach(card => {
+  //alt
+  /*let answeredQuestions = window.localStorage.getItem("Question");
+  cards.forEach(card => {
   if(card.dataset.framework == answeredQuestions){
     card.removeEventListener("click", flipCard);
     console.log(card);
     
   }
   
-});
-*/
-//alt ende
+  });
+  */
+  //alt ende
 
-//neu
-// Überprüfen, ob der Local Storage bereits Daten enthält
-const flippedCardsData = localStorage.getItem('flippedCards');
-if (flippedCardsData) {
-  const flippedCards = JSON.parse(flippedCardsData);
-  flippedCards.forEach(cardId => {
-    const card = document.getElementById(cardId);
+  //neu
+  // Überprüfen, ob der Local Storage bereits Daten enthält
+  const flippedCardsData = localStorage.getItem('flippedCards');
+  if (flippedCardsData) {
+    const flippedCards = JSON.parse(flippedCardsData);
+    flippedCards.forEach(cardData => {
+    /*  const card = document.getElementById(cardId);
     if (card) {
       card.classList.add('flip');
-      card.removeEventListener('click', flipCard);
+      card.removeEventListener('click', flipCard);*/
+      const card = Array.from(cards).find(card => card.getAttribute('data-framework') === cardData.framework);
+      if (card) {
+        card.classList.add('flip');
+        card.removeEventListener('click', flipCard);
     }
   });
 }
@@ -87,7 +92,8 @@ function flipCard() {
 
 //neu
 function checkForMatch() {
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+  //  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+  let isMatch = firstCard.getAttribute('data-framework') === secondCard.getAttribute('data-framework');
 
   if (isMatch) {
     disableCardsandcreateFact();
@@ -145,9 +151,12 @@ function saveFlippedCardsToLocalStorage() {
   let flippedCards = [];
   cards.forEach(card => {
     if (card.classList.contains('flip')) {
-      flippedCards.push(card.id);
-  }
-});
+      //flippedCards.push(card.id);
+      flippedCards.push({
+        framework: card.getAttribute('data-framework')
+      });
+    }
+  });
 //neu ende
 
 //neu
