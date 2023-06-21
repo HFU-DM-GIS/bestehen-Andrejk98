@@ -159,9 +159,11 @@ function resetBoard() {
 }
 
 //neu
-function saveFlippedCardsToLocalStorage() {
+  function saveFlippedCardsToLocalStorage() {
+  console.log(cards)
   cards.forEach(card => {
     if (card.classList.contains('flip')) {
+      console.log(card)
       if (!flippedCards.includes((card)=>card.framework === card.getAttribute('data-framework'))) {
         flippedCards.push({
           framework: card.getAttribute('data-framework')
@@ -169,6 +171,7 @@ function saveFlippedCardsToLocalStorage() {
       }
     }
   });
+    console.log(cards)
 //neu ende
 
 //neu
