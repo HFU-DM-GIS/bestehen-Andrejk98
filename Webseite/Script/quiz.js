@@ -25,8 +25,10 @@ if (flippedCardsData) {
   const flippedCards = JSON.parse(flippedCardsData);
   flippedCards.forEach(cardId => {
     const card = document.getElementById(cardId);
-    card.classList.add('flip');
-    card.removeEventListener('click', flipCard);
+    if (card) {
+      card.classList.add('flip');
+      card.removeEventListener('click', flipCard);
+    }
   });
 }
 
@@ -58,8 +60,7 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 
 //neu
 function flipCard() {
-  if (lockBoard) return;
-  if (this === firstCard) return;
+  if (lockBoard || this === firstCard) return;
   this.classList.add('flip');
 
   if (!hasFlippedCard) {
@@ -102,16 +103,17 @@ function disableCardsandcreateFact() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
  
-
+   //neu
+  saveFlippedCardsToLocalStorage();
+  //neu ende
+   
   document.getElementById("myPopup").style.visibility = "visible";
   randomPopupPosition()
   createRandomFact();
   
  /* window.localStorage.setItem("Question" + id++, JSON.stringify(firstCard.dataset.framework));
   console.log(firstCard.dataset.framework);*/
-   //neu
-  saveFlippedCardsToLocalStorage();
-  //neu ende
+
 
   setTimeout(() => {
     document.getElementById("myPopup").style.visibility = "hidden";
