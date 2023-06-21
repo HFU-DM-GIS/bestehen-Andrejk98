@@ -85,7 +85,7 @@ function flipCard() {
   // firstCard = null;
   // secondCard = null;
   // hasFlippedCard = false
-  resetBoard();
+  // 
 }
 //neu ende
 
@@ -111,7 +111,7 @@ function checkForMatch() {
   } else {
     unflipCards();
   }
-
+resetBoard();
 }
 //neu ende
 
