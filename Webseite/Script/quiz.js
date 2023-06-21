@@ -101,7 +101,11 @@ function flipCard() {
 //neu
 function checkForMatch() {
   //  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-  let isMatch = firstCard.getAttribute('data-framework') === secondCard.getAttribute('data-framework');
+  // let isMatch = firstCard.getAttribute('data-framework') === secondCard.getAttribute('data-framework');
+  const firstAttr = firstCard.getAttribute('data-framework').split("-")
+  const secondAttr = secondCard.getAttribute('data-framework').split("-")
+
+  const isMatch = firstAttr[1] === secondAttr[1]
 
   console.log("ismatch",isMatch)
   
