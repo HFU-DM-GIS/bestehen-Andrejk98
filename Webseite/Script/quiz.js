@@ -95,7 +95,10 @@ function checkForMatch() {
   //  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
   let isMatch = firstCard.getAttribute('data-framework') === secondCard.getAttribute('data-framework');
 
+  console.log("ismatch",isMatch)
+  
   if (isMatch) {
+ 
     disableCardsandcreateFact();
   } else {
     unflipCards();
