@@ -1,13 +1,25 @@
+// Überprüfung, ob der Browser den Local Storage unterstützt
 if (typeof (Storage) !== "undefined") {
+
+  // Auswahl aller Elemente mit der Klasse "memory-card"
   const cards = document.querySelectorAll('.memory-card');
 
+  // Speichert umgedrehten Karten 
   let flippedCards = [];
+
+  // Angabe, ob bereits eine Karte umgedreht wurde
   let hasFlippedCard = false;
+
+  // Sperrt das Board, während die Karten überprüft werden
   let lockBoard = false;
+
+   // Variablen für die erste und zweite umgedrehte Karte
   let firstCard, secondCard;
-  //let id = 1;
+
+
 
   //alt
+    //let id = 1;
   /*let answeredQuestions = window.localStorage.getItem("Question");
   cards.forEach(card => {
   if(card.dataset.framework == answeredQuestions){
@@ -20,16 +32,22 @@ if (typeof (Storage) !== "undefined") {
   */
   //alt ende
 
-  //neu
-  // Überprüfen, ob der Local Storage bereits Daten enthält
+
+
+  // Überprüfen, ob im Local Storage bereits Daten für umgedrehte Karten vorhanden sind
   const flippedCardsData = localStorage.getItem('flippedCards');
   if (flippedCardsData) {
+    // Wenn Daten vorhanden sind, werden die Karten entsprechend umgedreht
     flippedCards = JSON.parse(flippedCardsData);
     flippedCards.forEach(cardData => {
+
+
       /*  const card = document.getElementById(cardId);
       if (card) {
         card.classList.add('flip');
         card.removeEventListener('click', flipCard);*/
+
+
       const card = Array.from(cards).find(card => card.getAttribute('data-framework') === cardData.framework);
       if (card != null) {
         card.classList.add('flip');
@@ -38,8 +56,11 @@ if (typeof (Storage) !== "undefined") {
     });
   }
 
+  // Eventlistener für das Klicken auf eine Karte hinzufügen
   cards.forEach(card => card.addEventListener('click', flipCard));
-  //neu ende
+
+
+
 
   //alt
   //Flips the Cards around and then procedes to call the function checkForMatch
@@ -64,7 +85,9 @@ if (typeof (Storage) !== "undefined") {
   }*/
   //alt ende
 
-  //neu
+
+
+  // Funktion zum Umkehren der Karten
   function flipCard() {
     if (lockBoard || this === firstCard) return;
     this.classList.add('flip');
@@ -84,7 +107,8 @@ if (typeof (Storage) !== "undefined") {
     // hasFlippedCard = false
     // 
   }
-  //neu ende
+
+
 
   //alt
   //The code checks for a match between the two cards. If there is a match, it will disable the cards and if not, it will flip them over.
@@ -95,7 +119,8 @@ if (typeof (Storage) !== "undefined") {
   }*/
   //alt ende
 
-  //neu
+
+  // Funktion zum Überprüfen auf eine Kartenübereinstimmung
   function checkForMatch() {
     const firstAttr = firstCard.getAttribute('data-framework').split("-")
     const secondAttr = secondCard.getAttribute('data-framework').split("-")
@@ -104,23 +129,25 @@ if (typeof (Storage) !== "undefined") {
 
     if (isMatch) {
 
+      // Übereinstimmung: Karten deaktivieren, Pop-up anzeigen und Spielstand speichern
       disableCardsandcreateFact();
     } else {
+      // Keine Übereinstimmung: Karten wieder umdrehen
       unflipCards();
     }
     // resetBoard();
   }
-  //neu ende
 
 
-  //Disables the Cards by removing the EventListener "click" and creates a Pop-Up with a random Fact
+
+  // Funktion zum Deaktivieren der Karten und Anzeigen des Pop-ups
   function disableCardsandcreateFact() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
 
-    //neu
+
     saveFlippedCardsToLocalStorage();
-    //neu ende
+
 
     document.getElementById("myPopup").style.visibility = "visible";
     randomPopupPosition()
@@ -140,7 +167,7 @@ if (typeof (Storage) !== "undefined") {
     }, 8000);
   }
 
-  //Function unflips the Cards if they don´t match by removing the classList "flip"
+  // Funktion zum Umdrehen der Karten bei Nichtübereinstimmung
   function unflipCards() {
     lockBoard = true;
 
@@ -152,13 +179,13 @@ if (typeof (Storage) !== "undefined") {
     }, 1500);
   }
 
-  //Resets the Board after a Match by putting everything to false or null
+  // Funktion zum Zurücksetzen des Spielfelds
   function resetBoard() {
     [hasFlippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
   }
 
-  //neu
+  // Funktion zum Speichern des Spielstands im Local Storage
   function saveFlippedCardsToLocalStorage() {
     cards.forEach(card => {
       if (card.classList.contains('flip')) {
@@ -169,15 +196,15 @@ if (typeof (Storage) !== "undefined") {
         }
       }
     });
-    //neu ende
+  
 
-    //neu
+
     localStorage.setItem('flippedCards', JSON.stringify(flippedCards));
-    //neu ende
+
 
   }
 
-  //Sets a random position for every Card
+  // Funktion zum Zufällig Anordnen der Karten
   (function shuffle() {
     cards.forEach(card => {
       let randomPos = Math.floor(Math.random() * 12);
@@ -188,14 +215,14 @@ if (typeof (Storage) !== "undefined") {
   //cards.forEach(card => card.addEventListener('click', flipCard));
 
 
-
+  // Funktion zum Löschen des Spielstands im Local Storage
   function clearLocalStorage() {
     localStorage.clear();
     location.reload();
   }
 
-  /* POP UP */
 
+  // Funktion zum Abrufen eines zufälligen Fakts von der API und Anzeigen im Pop-up
   const API_URL = "https://publicapi.dev/random-useless-facts-api";
 
   function createRandomFact() {
@@ -214,6 +241,7 @@ if (typeof (Storage) !== "undefined") {
   }
 
 
+  // Funktion zum Zufälligen Positionieren des Pop-ups auf dem Bildschirm
   function randomPopupPosition() {
     var element = document.getElementById('myPopup');
     var viewportWidth = window.innerWidth;
@@ -226,6 +254,7 @@ if (typeof (Storage) !== "undefined") {
     element.style.top = randomTop + 'px';
   };
 
+  // Funktion zum Ausblenden des Pop-ups
   function closePopup() {
     document.getElementById("myPopup").style.visibility = "hidden";
   }
