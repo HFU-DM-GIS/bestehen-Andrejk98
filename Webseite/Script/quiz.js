@@ -179,7 +179,7 @@ if (typeof (Storage) !== "undefined") {
     }, 1500);
   }
 
-  // Funktion zum Zurücksetzen des Spielfelds
+  // Funktion zum Zurücksetzen des Spielfelds-> setzt Zustandsvariablen auf ihren Ursprünglichen Wert zurück
   function resetBoard() {
     [hasFlippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
