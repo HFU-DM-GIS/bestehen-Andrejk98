@@ -14,7 +14,18 @@ cards.forEach(card => {
   }
   
 });
-
+/*
+for(let i = 1; i<= localStorage.length; i++){
+  cards.forEach(card => {
+    if(card.dataset.framework == answeredQuestions){
+      card.removeEventListener("click", flipCard);
+      console.log(card);
+      
+    }
+    
+  });
+}
+*/
 //Flips the Cards around and then procedes to call the function checkForMatch
 function flipCard() {
   if (lockBoard) return;
