@@ -46,7 +46,7 @@ function update() {
     }
     
     // draw background and ball
-    //context.clearRect(0, 0, 10000, 300);
+    context.clearRect(0, 0, 10000, 300);
     context.fillStyle = "#4ff9a3";
     //context.fillRect(ballX - ballSize / 2, ballY - ballSize / 2, ballSize, ballSize);
     context.beginPath();
