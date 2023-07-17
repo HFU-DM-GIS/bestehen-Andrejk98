@@ -189,6 +189,7 @@ if (typeof (Storage) !== "undefined") {
   function saveFlippedCardsToLocalStorage() {
     cards.forEach(card => {
       if (card.classList.contains('flip')) {
+        //Verhindert Doppelte Einträge
         if (!flippedCards.some(flippedCard => flippedCard.framework === card.getAttribute('data-framework'))) {
           flippedCards.push({
             framework: card.getAttribute('data-framework')
